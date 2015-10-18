@@ -1,0 +1,12 @@
+.content-wrapper
+  / Content Header (Page header)
+  %section.content-header
+    %ol.breadcrumb
+      %li
+        %a{href: "#"}
+          %i.fa.fa-dashboard
+          Level
+      %li.active Here
+  / Main content
+  %section.content
+    = yield

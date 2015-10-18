@@ -36,6 +36,7 @@ GIT
 
 GEM
   remote: https://rubygems.org/
+  remote: https://rails-assets.org/
   specs:
     actionmailer (4.2.4)
       actionpack (= 4.2.4)
@@ -73,6 +74,9 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    annotate (2.6.10)
+      activerecord (>= 3.2, <= 4.3)
+      rake (~> 10.4)
     arbre (1.0.3)
       activesupport (>= 3.0.0)
     arel (6.0.3)
@@ -100,6 +104,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    code_analyzer (0.4.5)
+      sexp_processor
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -108,6 +114,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    colored (1.2)
     coolline (0.5.0)
       unicode_utils (~> 1.4)
     crack (0.4.2)
@@ -151,6 +158,8 @@ GEM
     faker (1.5.0)
       i18n (~> 0.5)
     ffi (1.9.10)
+    font-awesome-sass (4.3.2.1)
+      sass (~> 3.2)
     formatador (0.2.5)
     formtastic (3.1.3)
       actionpack (>= 3.2.13)
@@ -287,6 +296,7 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.2.4)
       sprockets-rails
+    rails-assets-adminlte (2.3.0)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -295,9 +305,21 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails-i18n (4.0.5)
+      i18n (~> 0.6)
+      railties (~> 4.0)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_best_practices (1.15.7)
+      activesupport
+      code_analyzer (>= 0.4.3)
+      colored
+      erubis
+      i18n
+      json
+      require_all
+      ruby-progressbar
     rails_serve_static_assets (0.0.4)
     rails_stdout_logging (0.0.4)
     railties (4.2.4)
@@ -317,6 +339,7 @@ GEM
       ffi (>= 0.5.0)
     rdiscount (2.1.8)
     rdoc (4.2.0)
+    require_all (1.3.2)
     responders (2.1.0)
       railties (>= 4.2.0, < 5)
     rspec (3.3.0)
@@ -340,6 +363,7 @@ GEM
       rspec-mocks (~> 3.3.0)
       rspec-support (~> 3.3.0)
     rspec-support (3.3.0)
+    ruby-progressbar (1.7.5)
     ruby_parser (3.7.1)
       sexp_processor (~> 4.1)
     safe_yaml (1.0.4)
@@ -398,6 +422,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin!
+  annotate
   bh
   bootstrap-sass
   byebug
@@ -410,6 +435,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails
   faker
+  font-awesome-sass
   guard-cucumber
   guard-rspec
   haml-rails
@@ -425,7 +451,10 @@ DEPENDENCIES
   puma
   quiet_assets
   rails (= 4.2.4)
+  rails-assets-adminlte!
+  rails-i18n (~> 4.0.0)
   rails_12factor
+  rails_best_practices
   rdiscount
   responders (~> 2.0)
   rspec

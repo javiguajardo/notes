@@ -2,14 +2,10 @@
 %html.no-js
   = render 'head'
 
-  %body{ :class => "#{ controller.controller_name }" }
-    = render 'chromeframe'
-    = render 'header'
-    = render 'flashes'
-
-    = yield
-
-    = render 'footer'
-
+  %body
+    - if user_signed_in?
+      = render 'authenticated'
+    - else
+      = render 'welcome'
     -# Javascript at the bottom for fast page loading
     = render 'javascripts'

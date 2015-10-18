@@ -69,6 +69,8 @@ group :development, :test do
   gem 'faker'
   gem 'dotenv-rails'
   gem 'rdiscount'
+  gem 'annotate'
+  gem 'rails_best_practices'
 end
 
 group :test do
@@ -89,3 +91,8 @@ gem 'activeadmin', github: 'activeadmin', branch: 'master'
 gem 'inherited_resources'
 gem 'dateslices'
 gem 'jazz_hands', github: 'danrabinowitz/jazz_hands', branch: 'use-newer-version-of-pry', groups: [:development, :test]
+gem 'rails-i18n', '~> 4.0.0'
+gem 'font-awesome-sass'
+source 'https://rails-assets.org/' do
+  gem 'rails-assets-adminlte'
+end

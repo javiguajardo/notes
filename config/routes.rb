@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :notes
+
   namespace :admin do
     # get "/stats" => "stats#stats"
     devise_scope :admin_user do
@@ -9,8 +11,7 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users
-  root 'setup#index'
-  get '/setup' => 'setup#index'
+  root 'notes#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
