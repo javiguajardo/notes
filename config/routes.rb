@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
   namespace :admin do
     # get "/stats" => "stats#stats"
     devise_scope :admin_user do

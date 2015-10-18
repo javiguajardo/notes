@@ -1,11 +1,28 @@
-%li.dropdown
-  %a.dropdown-toggle{ "href" => "#", "data-toggle"=>"dropdown", "role" => "button", "aria-expanded"=>"false"}
-    Account <span class="caret"></span>
+%li.dropdown.user.user-menu
+  / Menu Toggle Button
+  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+    / The user image in the navbar
+    %img.user-image{alt: "User Image", src: "#"}/
+    / hidden-xs hides the username on small devices so only the image appears.
+    %span.hidden-xs Alexander Pierce
   %ul.dropdown-menu
-    - if user_signed_in?
-      = link_to 'Profile', edit_user_registration_path
-      = link_to 'Sign Out', destroy_user_session_path, :method=>:delete
-    - else
-      / CONNECT
-      = link_to 'Sign In', new_user_session_path
-      = link_to 'Sign Up', new_user_registration_path
+    / The user image in the menu
+    %li.user-header
+      %img.img-circle{alt: "User Image", src: "#"}/
+      %p
+        Alexander Pierce - Web Developer
+        %small Member since Nov. 2012
+    / Menu Body
+    %li.user-body
+      .col-xs-4.text-center
+        %a{href: "#"} Followers
+      .col-xs-4.text-center
+        %a{href: "#"} Sales
+      .col-xs-4.text-center
+        %a{href: "#"} Friends
+    / Menu Footer
+    %li.user-footer
+      .pull-left
+        %a.btn.btn-default.btn-flat{href: "#"} Profile
+      .pull-right
+        %a.btn.btn-default.btn-flat{href: "#"} Sign out

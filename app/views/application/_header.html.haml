@@ -1,10 +1,20 @@
-= navbar position: :static do
-  = vertical do
-    = link_to root_path do
-      %span.glyphicon.glyphicon-cloud
-      Home
-  = horizontal do
-    = nav class: 'navbar-right' do
-      = link_to 'Contact', ""
-      = link_to 'About', ""
-      = render partial: "application/account_dropdown"
+%header.main-header
+  / Logo
+  %a.logo{href: "#"}
+    / mini logo for sidebar mini 50x50 pixels
+    %span.logo-mini
+      %b> Uni
+      N
+    / logo for regular state and mobile devices
+    %span.logo-lg
+      %b> Uni
+      Notas
+  / Header Navbar
+  %nav.navbar.navbar-static-top{role: "navigation"}
+    / Sidebar toggle button
+    %a.sidebar-toggle{"data-toggle" => "offcanvas", href: "#", role: "button"}
+      %span.sr-only Toggle navigation
+    / Navbar Right Menu
+    .navbar-custom-menu
+      %ul.nav.navbar-nav
+        = render 'account_dropdown'
