@@ -69,6 +69,8 @@ group :development, :test do
   gem 'faker'
   gem 'dotenv-rails'
   gem 'rdiscount'
+  gem 'annotate'
+  gem 'rails_best_practices'
 end
 
 group :test do
