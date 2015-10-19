@@ -2,11 +2,19 @@
 %html.no-js
   = render 'head'
 
+<<<<<<< HEAD
   %body.hold-transition.skin-blue.sidebar-mini
     .wrapper
       = render 'header'
       = render 'side_menu'
       = render 'content'
       = render 'footer'
+=======
+  %body
+    - if user_signed_in?
+      = render 'authenticated'
+    - else
+      = render 'welcome'
+>>>>>>> welcome
     -# Javascript at the bottom for fast page loading
     = render 'javascripts'

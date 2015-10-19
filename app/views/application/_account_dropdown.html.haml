@@ -1,28 +1,28 @@
-%li.dropdown.user.user-menu
-  / Menu Toggle Button
-  %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
-    / The user image in the navbar
-    %img.user-image{alt: "User Image", src: "#"}/
-    / hidden-xs hides the username on small devices so only the image appears.
-    %span.hidden-xs Alexander Pierce
-  %ul.dropdown-menu
-    / The user image in the menu
-    %li.user-header
-      %img.img-circle{alt: "User Image", src: "#"}/
-      %p
-        Alexander Pierce - Web Developer
-        %small Member since Nov. 2012
-    / Menu Body
-    %li.user-body
-      .col-xs-4.text-center
-        %a{href: "#"} Followers
-      .col-xs-4.text-center
-        %a{href: "#"} Sales
-      .col-xs-4.text-center
-        %a{href: "#"} Friends
-    / Menu Footer
-    %li.user-footer
-      .pull-left
-        %a.btn.btn-default.btn-flat{href: "#"} Profile
-      .pull-right
-        %a.btn.btn-default.btn-flat{href: "#"} Sign out
+- if user_signed_in?
+  %li.dropdown.user.user-menu
+    / Menu Toggle Button
+    %a.dropdown-toggle{"data-toggle" => "dropdown", href: "#"}
+      / The user image in the navbar
+      =image_tag 'user_image', class: 'user-image'
+      / hidden-xs hides the username on small devices so only the image appears.
+      %span.hidden-xs Alexander Pierce
+    %ul.dropdown-menu
+      / The user image in the menu
+      %li.user-header
+        =image_tag 'user_image', class: 'img-circle'
+        %p
+          Alexander Pierce - Web Developer
+      / Menu Body
+      %li.user-body
+        .col-xs-4.text-center
+          %a{href: "#"} Followers
+        .col-xs-4.text-center
+          %a{href: "#"} Sales
+        .col-xs-4.text-center
+          %a{href: "#"} Friends
+      / Menu Footer
+      %li.user-footer
+        .pull-left
+          =link_to 'Perfil', '#', class: 'btn btn-default btn-flat'
+        .pull-right
+          =link_to 'Cerrar sesión', '#', class: 'btn btn-default btn-flat'

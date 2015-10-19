@@ -3,7 +3,10 @@
 *= require adminlte
 *= require skin-blue
 */
+<<<<<<< HEAD:app/assets/stylesheets/application.css.scss
 
+=======
+>>>>>>> welcome:app/assets/stylesheets/application.css.scss
 // The organization of this CSS is heavily inspired by GitHub's CSS
 // stylesheet guidelines.
 //
@@ -18,6 +21,7 @@
 // These both need to be imported before bootstrap:
 @import 'globals/fonts';
 @import 'globals/variables';
+<<<<<<< HEAD:app/assets/stylesheets/application.css.scss
 
 // --------------Bootstrap-----------------------------
 @import 'bootstrap-sprockets';
@@ -31,16 +35,34 @@
 // For example (add your own!!):
 @import 'globals/mixins';
 
+=======
+// --------------Bootstrap-----------------------------
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+// --------------Font Awesome--------------------------
+@import "font-awesome-sprockets";
+@import "font-awesome";
+// --------------Global definitions--------------------
+// For example (add your own!!):
+@import 'globals/mixins';
+>>>>>>> welcome:app/assets/stylesheets/application.css.scss
 // --------------Shared styles-------------------------
 // Common base CSS modifications. For example:
 @import 'shared/buttons';
 @import 'shared/grid';
+<<<<<<< HEAD:app/assets/stylesheets/application.css.scss
 
 // --------------Components----------------------------
 // Create your own and modify/extend Bootstrap's. For example:
 @import 'components/panel';
 
+=======
+// --------------Components----------------------------
+// Create your own and modify/extend Bootstrap's. For example:
+@import 'components/panel';
+>>>>>>> welcome:app/assets/stylesheets/application.css.scss
 // --------------Sections------------------------------
 // Page-specific styles. These should *only* be used as a last
 // resort if you really truly can't style your content more generally.
 @import 'sections/profile_page';
+@import 'sections/welcome';

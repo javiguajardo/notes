@@ -11,6 +11,7 @@
       Notas
   / Header Navbar
   %nav.navbar.navbar-static-top{role: "navigation"}
+<<<<<<< HEAD
     / Sidebar toggle button
     %a.sidebar-toggle{"data-toggle" => "offcanvas", href: "#", role: "button"}
       %span.sr-only Toggle navigation
@@ -18,3 +19,13 @@
     .navbar-custom-menu
       %ul.nav.navbar-nav
         = render 'account_dropdown'
+=======
+    - if user_signed_in?
+      / Sidebar toggle button
+      %a.sidebar-toggle{"data-toggle" => "offcanvas", href: "#", role: "button"}
+        %span.sr-only Toggle navigation
+      / Navbar Right Menu
+      .navbar-custom-menu
+        %ul.nav.navbar-nav
+          = render 'account_dropdown'
+>>>>>>> welcome
