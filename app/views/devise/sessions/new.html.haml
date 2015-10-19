@@ -4,13 +4,11 @@
     .center_panel
       .panel.panel-default.only
         .panel-heading
-          Registro
+          Sign in
 
         .panel-body
 
           = form_for resource, as: resource_name, url: session_path(resource_name), layout: :horizontal do |f|
-
-            = f.text_field :username, required: true
             = f.email_field :email, autofocus: true
             = f.password_field :password, autocomplete: 'off'
 

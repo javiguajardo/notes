@@ -3,9 +3,12 @@
   = render 'head'
 
   %body
+    = render 'header'
     - if user_signed_in?
-      = render 'authenticated'
+      = render 'side_menu'
+      = render 'content'
     - else
-      = render 'welcome'
+      = yield
+    = render 'footer'
     -# Javascript at the bottom for fast page loading
     = render 'javascripts'

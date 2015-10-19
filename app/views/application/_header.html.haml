@@ -11,11 +11,10 @@
       Notas
   / Header Navbar
   %nav.navbar.navbar-static-top{role: "navigation"}
-    - if user_signed_in?
-      / Sidebar toggle button
-      %a.sidebar-toggle{"data-toggle" => "offcanvas", href: "#", role: "button"}
-        %span.sr-only Toggle navigation
-      / Navbar Right Menu
-      .navbar-custom-menu
-        %ul.nav.navbar-nav
-          = render 'account_dropdown'
+    / Sidebar toggle button
+    %a.sidebar-toggle{"data-toggle" => "offcanvas", href: "#", role: "button"}
+      %span.sr-only Toggle navigation
+    / Navbar Right Menu
+    .navbar-custom-menu
+      %ul.nav.navbar-nav
+        = render 'account_dropdown'

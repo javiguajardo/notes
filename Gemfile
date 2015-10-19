@@ -77,12 +77,9 @@ group :test do
   gem 'webmock'
 end
 
-group :production do
-  gem 'pg'
-end
-
 gem 'bootstrap-sass'
 gem 'modernizr-rails'
+gem 'pg'
 gem 'meta-tags', require: 'meta_tags'
 gem 'responders', '~> 2.0'
 gem 'bh'
