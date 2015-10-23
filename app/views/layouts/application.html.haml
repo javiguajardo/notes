@@ -2,13 +2,14 @@
 %html.no-js
   = render 'head'
 
-  %body
-    = render 'header'
-    - if user_signed_in?
-      = render 'side_menu'
-      = render 'content'
-    - else
-      = yield
-    = render 'footer'
+  %body{class: user_signed_in? ? 'hold-transition skin-blue sidebar-mini' : 'hold-transition sidebar-mini'}
+    .wrapper
+      = render 'header'
+      - if user_signed_in?
+        = render 'side_menu'
+        = render 'content'
+      - else
+        = yield
+      = render 'footer'
     -# Javascript at the bottom for fast page loading
     = render 'javascripts'
