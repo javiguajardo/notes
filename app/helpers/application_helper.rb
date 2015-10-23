@@ -13,9 +13,10 @@ module ApplicationHelper
       # and default to being alarming
       else "danger"
     end
+    nil
   end
 
   def page_title
-    @title || controller_name.gsub( /Controller/, "" ).humanize
+    @title || controller_name.gsub(/Controller/, "").humanize
   end
 end

@@ -1,12 +1,11 @@
 .content-wrapper
+  = render 'flashes'
   / Content Header (Page header)
   %section.content-header
     %ol.breadcrumb
       %li
-        %a{href: "#"}
-          %i.fa.fa-dashboard
-          Level
-      %li.active Here
+        %i.fa.fa-dashboard
+        = render_breadcrumbs tag: :li, separator: '<i class="fa fa-angle-right" style="padding: 0 5px;"></i>'.html_safe
   / Main content
   %section.content
     = yield

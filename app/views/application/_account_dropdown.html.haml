@@ -5,21 +5,14 @@
       / The user image in the navbar
       =image_tag 'user_image', class: 'user-image'
       / hidden-xs hides the username on small devices so only the image appears.
-      %span.hidden-xs Alexander Pierce
+      %span.hidden-xs
+        = current_user.username
     %ul.dropdown-menu
       / The user image in the menu
       %li.user-header
         =image_tag 'user_image', class: 'img-circle'
         %p
-          Alexander Pierce - Web Developer
-      / Menu Body
-      %li.user-body
-        .col-xs-4.text-center
-          %a{href: "#"} Followers
-        .col-xs-4.text-center
-          %a{href: "#"} Sales
-        .col-xs-4.text-center
-          %a{href: "#"} Friends
+          = current_user.username
       / Menu Footer
       %li.user-footer
         .pull-left

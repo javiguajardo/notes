@@ -1,48 +1,48 @@
- 
- 
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  add_breadcrumb 'Notas', :notes_path
 
   respond_to :html, :json, :js
 
   def index
     @notes = Note.all
-  end 
+  end
 
   def show
-  end 
+  end
 
-  def new 
+  def new
     @note = Note.new
-  end 
+  end
 
   def edit
-  end 
+  end
 
   def create
     @note = Note.new(note_params)
     @note.save
+    flash[:notice] = 'Note was successfully created.'
     respond_with(@note)
-  end 
+  end
 
   def update
     @note.update(note_params)
     flash[:notice] = 'Note was successfully updated.'
     respond_with(@note)
-  end 
+  end
 
   def destroy
     @note.destroy
     redirect_to notes_url, notice: 'Note was successfully destroyed.'
-  end 
+  end
 
   private
-    def set_note
-      @note = Note.find(params[:id])
-    end 
+  def set_note
+    @note = Note.find(params[:id])
+  end
 
-    def note_params
-      params.require(:note).permit(:title, :content) 
-    end 
+  def note_params
+    params.require(:note).permit(:title, :content)
+  end
 end
  
