@@ -1,11 +1,11 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
-  add_breadcrumb 'Notas', :notes_path
+  add_breadcrumb 'Notes', :notes_path
 
   respond_to :html, :json, :js
 
   def index
-    @notes = Note.all
+    @notes = Note.paginate(page: params[:page], per_page: 10).order('id DESC')
   end
 
   def show
@@ -20,20 +20,23 @@ class NotesController < ApplicationController
 
   def create
     @note = Note.new(note_params)
-    @note.save
-    flash[:notice] = 'Note was successfully created.'
+    if @note.save
+      flash[:notice] = 'Note was successfully created.'
+    end
+
     respond_with(@note)
   end
 
   def update
-    @note.update(note_params)
-    flash[:notice] = 'Note was successfully updated.'
+    if @note.update(note_params)
+      flash[:notice] = 'Note was successfully updated.'
+    end
+
     respond_with(@note)
   end
 
   def destroy
-    @note.destroy
-    redirect_to notes_url, notice: 'Note was successfully destroyed.'
+    redirect_to notes_url, notice: 'Note was successfully destroyed.' if @note.destroy
   end
 
   private

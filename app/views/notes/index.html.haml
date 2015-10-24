@@ -20,6 +20,10 @@
           %tr
             %td= note.title
             %td= note.content
-            %td= link_to 'Show', note
-            %td= link_to 'Edit', edit_note_path(note)
-            %td= link_to 'Destroy', note, :data => { confirm: 'Are you sure?' }, :method => :delete
+            %td= link_to '<i class="fa fa-search"></i>'.html_safe, note, class: 'btn btn-xs btn-success', title: 'Show'
+            %td= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_note_path(note),
+                          class: 'btn btn-xs btn-primary', title: 'Edit'
+            %td= link_to '<i class="fa fa-trash"></i>'.html_safe, note, data: { confirm: 'Are you sure?' },
+                          method: :delete, title: 'Delete', class: 'btn btn-xs btn-danger'
+  .box-footer.clearfix
+    = custom_paginator(@notes)

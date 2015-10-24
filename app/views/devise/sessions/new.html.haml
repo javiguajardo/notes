@@ -16,7 +16,8 @@
 
       - if devise_mapping.rememberable?
         = f.check_box :remember_me
-        = f.submit 'Sign in', class: 'btn btn-primary btn-block btn-flat'
+
+      = f.submit 'Sign in', class: 'btn btn-primary btn-block btn-flat'
 
     %p.text-right
       = render partial: 'devise/shared/links'

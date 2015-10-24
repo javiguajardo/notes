@@ -6,3 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+# Generate 50 notes.
+50.times do |i|
+  Note.create(title: Faker::Book.title, content: Faker::Lorem.paragraph)
+end

@@ -95,3 +95,6 @@ source 'https://rails-assets.org/' do
 end
 gem 'breadcrumbs_on_rails'
 gem 'bootstrap-wysihtml5-rails'
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'

@@ -19,4 +19,5 @@
 //= require components
 //= require keyblocker
 //= require users
+//= require data-confirm-modal
 
