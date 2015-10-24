@@ -1,19 +1,19 @@
-.container
-  .page-header
-    = link_to new_note_path, :class => 'btn btn-primary' do
-      %span.glyphicon.glyphicon-plus
-      New Note
-    %h1 Listing notes
+.page-header
+  = link_to new_note_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Note
 
-  .table-responsive
+.box
+  .box-header.with-border
+    %h3.box-title
+      Listing Notes
+  .box-body.table-responsive.no-padding
     %table.table.table-striped.table-bordered.table-hover
       %thead
         %tr
           %th Title
           %th Content
-          %th
-          %th
-          %th
+          %th{colspan: '3', style: 'text-align: center'} Actions
 
       %tbody
         - @notes.each do |note|

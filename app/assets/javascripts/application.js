@@ -15,3 +15,8 @@
 //= require bootstrap-sprockets
 //= require adminlte
 //= require flashes
+//= require bootstrap-wysihtml5
+//= require components
+//= require keyblocker
+//= require users
+

@@ -94,3 +94,4 @@ source 'https://rails-assets.org/' do
   gem 'rails-assets-adminlte'
 end
 gem 'breadcrumbs_on_rails'
+gem 'bootstrap-wysihtml5-rails'

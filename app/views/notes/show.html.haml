@@ -1,16 +1,16 @@
-.container
-  .page-header
-    = link_to notes_path, :class => 'btn btn-default' do
-      %span.glyphicon.glyphicon-list-alt
-      Back
-    = link_to edit_note_path(@note), :class => 'btn btn-primary' do
-      %span.glyphicon.glyphicon-pencil
-      Edit
-    %h1 Show note
+.page-header
+  = link_to notes_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_note_path(@note), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
 
-  %dl.dl-horizontal
-    %dt Title:
-    %dd= @note.title
-    %dt Content:
-    %dd= @note.content
+%h1 Show Note
+
+%dl.dl-horizontal
+  %dt Title:
+  %dd= @note.title
+  %dt Content:
+  %dd= @note.content
 

@@ -1,9 +1,6 @@
-.container
-  .page-header
-    = link_to notes_path, class: 'btn btn-default' do
-      %span.glyphicon.glyphicon-list-alt
-      Back
-    %h1 New note
+.page-header
+  = link_to notes_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
 
-  = render 'form'
-
+= render 'form'

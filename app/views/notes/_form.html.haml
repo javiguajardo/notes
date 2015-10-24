@@ -1,4 +1,14 @@
-= form_for @note, layout: :horizontal do |f|
-  = f.text_field :title, :class => 'form-control'
-  = f.text_area :content, :class => 'form-control'
-  = f.submit :class => 'btn btn-primary'
+.box
+  .box-header
+    %h3.box-title
+      = @note.new_record? ? 'New Note' : 'Edit Note'
+    .pull-right.box-tools
+      %button.btn.btn-default.btn-sm{"data-toggle" => "tooltip", "data-widget" => "collapse", title: "Collapse"}
+        %i.fa.fa-minus
+      %button.btn.btn-default.btn-sm{"data-toggle" => "tooltip", "data-widget" => "remove", title: "Remove"}
+        %i.fa.fa-times
+  .box-body.pad
+    = form_for @note, layout: :horizontal do |f|
+      = f.text_field :title
+      = f.text_area :content, class: 'wysihtml5'
+      = f.submit class: 'btn btn-primary'
