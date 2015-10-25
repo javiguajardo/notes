@@ -35,6 +35,8 @@ class RolesController < ApplicationController
   def destroy
     if @role.destroy
       redirect_to roles_url, notice: 'Role was successfully destroyed.'
+    else
+      redirect_to :back, alert: "The role #{@role.name} has users."
     end
   end
 

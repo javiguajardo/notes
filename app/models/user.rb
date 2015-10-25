@@ -16,6 +16,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  username               :string
+#  role_id                :integer
 #
 
 class User < ActiveRecord::Base
@@ -23,7 +24,23 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  before_create :set_default_role
 
   validates :username, presence: true, uniqueness: {case_sensitive: false}, length: {minimum: 4, maximum: 14},
             format: {with: /(^[a-zA-Z0-9_-]+$)/}
+
+  belongs_to :role
+
+  def admin?
+    role and role.key == 'admin'
+  end
+
+  def visitor?
+    role and role.key == 'visitor'
+  end
+
+  private
+  def set_default_role
+    self.role ||= Role.find_by_key('visitor')
+  end
 end
