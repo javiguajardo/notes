@@ -30,6 +30,7 @@ class NotebooksController < ApplicationController
   def create
     @notebook = Notebook.new(notebook_params)
     authorize @notebook
+    @notebook.set_notebook_user(current_user)
     flash[:notice] = 'Notebook was successfully created.' if @notebook.save
     respond_with(@notebook)
   end

@@ -30,6 +30,8 @@ class User < ActiveRecord::Base
             format: {with: /(^[a-zA-Z0-9_-]+$)/}
 
   belongs_to :role
+  has_many :notebooks, dependent: :destroy
+  has_many :notes, dependent: :destroy
 
   def admin?
     role and role.key == 'admin'

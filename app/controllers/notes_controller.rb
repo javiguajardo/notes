@@ -28,6 +28,7 @@ class NotesController < ApplicationController
   def create
     @note = Note.new(note_params)
     authorize @note
+    @note.set_note_user(current_user)
     flash[:notice] = 'Note was successfully created.' if @note.save
     respond_with(@note)
   end
