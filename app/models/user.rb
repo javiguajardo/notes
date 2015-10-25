@@ -26,4 +26,6 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: {case_sensitive: false}, length: {minimum: 4, maximum: 14},
             format: {with: /(^[a-zA-Z0-9_-]+$)/}
+
+  belongs_to :role
 end
