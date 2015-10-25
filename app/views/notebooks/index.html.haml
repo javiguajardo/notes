@@ -25,7 +25,8 @@
                               title: 'Show'
                   = link_to '<i class="fa fa-edit"></i>'.html_safe, edit_notebook_path(notebook),
                               class: 'btn btn-xs btn-primary grow', title: 'Edit'
-                  = link_to '<i class="fa fa-trash grow"></i>'.html_safe, notebook, data: { confirm: 'Are you sure?' },
-                              method: :delete, title: 'Delete', class: 'btn btn-xs btn-danger grow'
+                  = link_to '<i class="fa fa-trash grow"></i>'.html_safe, notebook,
+                              data: { confirm: "Are you sure you want to delete the notebook #{notebook.name}?" },
+                              method: :delete, title: 'Delete Notebook', class: 'btn btn-xs btn-danger grow'
   .box-footer.clearfix
     = custom_paginator(@notebooks)

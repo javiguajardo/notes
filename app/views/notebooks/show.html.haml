@@ -5,7 +5,8 @@
   = link_to edit_notebook_path(@notebook), class: 'btn btn-primary' do
     %span.glyphicon.glyphicon-pencil
     Edit
-  = link_to notebook_path(@notebook), class: 'btn btn-danger', data: { confirm: 'Are you sure?' }, method: :delete do
+  = link_to notebook_path(@notebook), class: 'btn btn-danger', title: 'Delete Notebook',
+            data: { confirm: "Are you sure you want to delete the notebook #{@notebook.name}?" }, method: :delete do
     %span.glyphicon.glyphicon-remove
     Delete
 

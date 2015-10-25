@@ -1,0 +1,10 @@
+.box
+  .box-header
+    %h3.box-title
+      = role.new_record? ? 'New Role' : 'Edit Role'
+  .box-body.pad
+    = form_for role, layout: :horizontal do |f|
+      = f.text_field :name
+      = f.text_field :key
+      = f.text_area :description
+      = f.submit class: 'btn btn-primary'

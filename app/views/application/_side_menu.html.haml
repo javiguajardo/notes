@@ -29,3 +29,13 @@
             %li
               =link_to "<i class='fa fa-circle-o'></i> #{notebook.name}".html_safe,
               notebook_path(notebook.id)
+      %li.treeview
+        %a{href: '#'}
+          %i.fa.fa-user-secret
+          %span Roles
+          %i.fa.fa-angle-left.pull-right
+        %ul.treeview-menu
+          %li
+            =link_to "<i class='fa fa-circle-o'></i> New role".html_safe, new_role_path
+          %li
+            =link_to "<i class='fa fa-circle-o'></i> All roles".html_safe, roles_path

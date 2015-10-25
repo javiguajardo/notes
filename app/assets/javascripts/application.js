@@ -20,3 +20,4 @@
 //= require keyblocker
 //= require users
 //= require data-confirm-modal
+//= require roles

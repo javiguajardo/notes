@@ -5,7 +5,8 @@
   = link_to edit_note_path(@note), class: 'btn btn-primary' do
     %span.glyphicon.glyphicon-pencil
     Edit
-  = link_to note_path(@note), class: 'btn btn-danger', data: { confirm: 'Are you sure?' }, method: :delete do
+  = link_to note_path(@note), class: 'btn btn-danger', title: 'Delete Note',
+            data: { confirm: "Are you sure you want to delete the note #{@note.title}?" }, method: :delete do
     %span.glyphicon.glyphicon-remove
     Delete
 

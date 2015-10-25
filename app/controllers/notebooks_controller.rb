@@ -38,7 +38,7 @@ class NotebooksController < ApplicationController
     if @notebook.destroy
       redirect_to notebooks_url, notice: 'Notebook was successfully destroyed.'
     else
-      redirect_to :back, alert: "The notebook #{@notebook.name} has dependencies."
+      redirect_to :back, alert: "The notebook #{@notebook.name} has notes."
     end
   end
 

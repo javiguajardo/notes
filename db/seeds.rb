@@ -13,3 +13,7 @@ Notebook.create(name: 'Default')
 50.times do |i|
   Note.create(title: Faker::Book.title, content: Faker::Lorem.paragraph, notebook_id: 1)
 end
+
+Role.create(name: 'Admin', key: 'admin', description: 'System administrator that has all privileges.')
+Role.create(name: 'Visitor', key: 'visitor', description: 'User that visits the site.')
+
