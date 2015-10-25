@@ -1,7 +1,8 @@
 .page-header
-  = link_to new_role_path, class: 'btn btn-primary' do
-    %span.glyphicon.glyphicon-plus
-    New Role
+  - if policy(Role).new?
+    = link_to new_role_path, class: 'btn btn-primary' do
+      %span.glyphicon.glyphicon-plus
+      New Role
 
 .box
   .box-header.with-border
@@ -25,11 +26,11 @@
             %td
               .btn-group
                 .row
-                  = link_to '<i class="fa fa-search"></i>'.html_safe, role, class: 'btn btn-xs btn-success grow',
+                  = link_item '<i class="fa fa-search"></i>'.html_safe, role_path(role), class: 'btn btn-xs btn-success grow',
                               title: 'Show'
-                  = link_to '<i class="fa fa-edit"></i>'.html_safe, edit_role_path(role),
+                  = link_item '<i class="fa fa-edit"></i>'.html_safe, edit_role_path(role),
                               class: 'btn btn-xs btn-primary grow', title: 'Edit'
-                  = link_to '<i class="fa fa-trash grow"></i>'.html_safe, role,
+                  = link_item '<i class="fa fa-trash grow"></i>'.html_safe, role_path(role),
                               data: { confirm: "Are you sure you want to delete the role #{role.name}?" },
                               method: :delete, title: 'Delete Role', class: 'btn btn-xs btn-danger grow'
   .box-footer.clearfix

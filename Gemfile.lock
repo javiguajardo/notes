@@ -290,6 +290,8 @@ GEM
       binding_of_caller (>= 0.7)
       pry (>= 0.9.11)
     puma (2.14.0)
+    pundit (1.0.1)
+      activesupport (>= 3.0.0)
     quiet_assets (1.1.0)
       railties (>= 3.1, < 5.0)
     rack (1.6.4)
@@ -465,6 +467,7 @@ DEPENDENCIES
   modernizr-rails
   pg
   puma
+  pundit
   quiet_assets
   rails (= 4.2.4)
   rails-assets-adminlte!

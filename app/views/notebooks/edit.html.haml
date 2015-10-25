@@ -1,9 +1,12 @@
 .page-header
-  = link_to notebooks_path, class: 'btn btn-default' do
-    %span.glyphicon.glyphicon-list-alt
-    Back
-  = link_to @notebook, class: 'btn btn-primary' do
-    %span.glyphicon.glyphicon-info-sign
-    Show
+  - if policy(Notebook).index?
+    = link_to notebooks_path, class: 'btn btn-default' do
+      %span.glyphicon.glyphicon-list-alt
+      Back
+
+  - if policy(Notebook).show?
+    = link_to notebook_path(@notebook), class: 'btn btn-primary' do
+      %span.glyphicon.glyphicon-info-sign
+      Show
 
 = render 'form', notebook: @notebook

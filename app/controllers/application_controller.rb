@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_filter :authenticate
 
+  include Pundit
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  protect_from_forgery with: :exception
+
   def authenticate
     unless ENV['HTTP_AUTH_USERNAME'].blank? or ENV['HTTP_AUTH_PASSWORD'].blank?
       authenticate_or_request_with_http_basic do |username, password|
@@ -18,5 +23,12 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :username
     devise_parameter_sanitizer.for(:sign_up) << :role_id
+  end
+
+  private
+
+  def user_not_authorized
+    flash[:alert] = 'You are not authorized to perform this action.'
+    redirect_to(request.referrer || authenticated_root_path || unauthenticated_root_path)
   end
 end

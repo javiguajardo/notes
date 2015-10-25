@@ -1,7 +1,8 @@
 .page-header
-  = link_to roles_path, class: 'btn btn-default' do
-    %span.glyphicon.glyphicon-list-alt
-    Back
+  - if policy(Role).index?
+    = link_to roles_path, class: 'btn btn-default' do
+      %span.glyphicon.glyphicon-list-alt
+      Back
 
 = render 'form', role: @role
 

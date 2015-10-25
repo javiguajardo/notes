@@ -1,14 +1,17 @@
 .page-header
-  = link_to roles_path, class: 'btn btn-default' do
-    %span.glyphicon.glyphicon-list-alt
-    Back
-  = link_to edit_role_path(@role), class: 'btn btn-primary' do
-    %span.glyphicon.glyphicon-pencil
-    Edit
-  = link_to role_path(@role), class: 'btn btn-danger', title: 'Delete Role',
-            data: { confirm: "Are you sure you want to delete the role #{@role.name}?" }, method: :delete do
-    %span.glyphicon.glyphicon-remove
-    Delete
+  - if policy(Role).index?
+    = link_to roles_path, class: 'btn btn-default' do
+      %span.glyphicon.glyphicon-list-alt
+      Back
+  - if policy(Role).edit?
+    = link_to edit_role_path(@role), class: 'btn btn-primary' do
+      %span.glyphicon.glyphicon-pencil
+      Edit
+  - if policy(Role).destroy?
+    = link_to role_path(@role), class: 'btn btn-danger', title: 'Delete Role',
+              data: { confirm: "Are you sure you want to delete the role #{@role.name}?" }, method: :delete do
+      %span.glyphicon.glyphicon-remove
+      Delete
 
 .col-md-12
   .box
