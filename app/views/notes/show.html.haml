@@ -5,12 +5,15 @@
   = link_to edit_note_path(@note), class: 'btn btn-primary' do
     %span.glyphicon.glyphicon-pencil
     Edit
+  = link_to note_path(@note), class: 'btn btn-danger', data: { confirm: 'Are you sure?' }, method: :delete do
+    %span.glyphicon.glyphicon-remove
+    Delete
 
-%h1 Show Note
-
-%dl.dl-horizontal
-  %dt Title:
-  %dd= @note.title
-  %dt Content:
-  %dd= @note.content
+.col-md-12
+  .box
+    .box-header.with-border
+      %h3.box-title
+        = @note.title
+    .box-body
+      %p= simple_format(@note.content)
 

@@ -1,14 +1,16 @@
 .box
   .box-header
     %h3.box-title
-      = @note.new_record? ? 'New Note' : 'Edit Note'
-    .pull-right.box-tools
-      %button.btn.btn-default.btn-sm{"data-toggle" => "tooltip", "data-widget" => "collapse", title: "Collapse"}
-        %i.fa.fa-minus
-      %button.btn.btn-default.btn-sm{"data-toggle" => "tooltip", "data-widget" => "remove", title: "Remove"}
-        %i.fa.fa-times
+      = note.new_record? ? 'New Note' : 'Edit Note'
+
   .box-body.pad
-    = form_for @note, layout: :horizontal do |f|
+    = form_for note, layout: :horizontal do |f|
+      .form-group
+        %label{class: 'col-sm-3 control-label', for: 'note_notebook'}
+          Notebook
+        .col-sm-9
+          = f.collection_select(:notebook_id, Notebook.all, :id, :name, {prompt: 'Select notebook'},
+                              {class: 'form-control'})
       = f.text_field :title
       = f.text_area :content, class: 'wysihtml5'
       = f.submit class: 'btn btn-primary'

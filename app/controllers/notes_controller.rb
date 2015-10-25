@@ -9,29 +9,26 @@ class NotesController < ApplicationController
   end
 
   def show
+    add_breadcrumb "#{@note.title}", note_path
   end
 
   def new
+    add_breadcrumb 'New', new_note_path
     @note = Note.new
   end
 
   def edit
+    add_breadcrumb 'Edit', edit_note_path
   end
 
   def create
     @note = Note.new(note_params)
-    if @note.save
-      flash[:notice] = 'Note was successfully created.'
-    end
-
+    flash[:notice] = 'Note was successfully created.' if @note.save
     respond_with(@note)
   end
 
   def update
-    if @note.update(note_params)
-      flash[:notice] = 'Note was successfully updated.'
-    end
-
+    flash[:notice] = 'Note was successfully updated.' if @note.update(note_params)
     respond_with(@note)
   end
 
@@ -45,7 +42,6 @@ class NotesController < ApplicationController
   end
 
   def note_params
-    params.require(:note).permit(:title, :content)
+    params.require(:note).permit(:title, :content, :notebook_id)
   end
 end
- 

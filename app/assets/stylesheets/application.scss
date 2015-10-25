@@ -35,11 +35,13 @@
 // Common base CSS modifications. For example:
 @import 'shared/buttons';
 @import 'shared/grid';
+@import 'shared/grow_hover';
 
 // --------------Components----------------------------
 // Create your own and modify/extend Bootstrap's. For example:
 @import 'components/panel';
 @import "bootstrap-wysihtml5/bootstrap3-wysihtml5";
+@import 'components/tables';
 
 // --------------Sections------------------------------
 // Page-specific styles. These should *only* be used as a last

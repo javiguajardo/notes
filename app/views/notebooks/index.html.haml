@@ -1,0 +1,31 @@
+.page-header
+  = link_to new_notebook_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Notebook
+
+.box
+  .box-header.with-border
+    %h3.box-title
+      Listing Notebooks
+  .box-body.table-responsive.no-padding
+    %table.table.table-striped.table-bordered.table-hover
+      %thead
+        %tr
+          %th{rowspan: '1', colspan: '1'} Name
+          %th{rowspan: '1', colspan: '1', style: 'width: 133px; text-align: center;'} Actions
+
+      %tbody
+        - @notebooks.each do |notebook|
+          %tr.gradeX
+            %td= notebook.name
+            %td
+              .btn-group
+                .row
+                  = link_to '<i class="fa fa-search"></i>'.html_safe, notebook, class: 'btn btn-xs btn-success grow',
+                              title: 'Show'
+                  = link_to '<i class="fa fa-edit"></i>'.html_safe, edit_notebook_path(notebook),
+                              class: 'btn btn-xs btn-primary grow', title: 'Edit'
+                  = link_to '<i class="fa fa-trash grow"></i>'.html_safe, notebook, data: { confirm: 'Are you sure?' },
+                              method: :delete, title: 'Delete', class: 'btn btn-xs btn-danger grow'
+  .box-footer.clearfix
+    = custom_paginator(@notebooks)

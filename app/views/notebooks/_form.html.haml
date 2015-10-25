@@ -1,0 +1,8 @@
+.box
+  .box-header
+    %h3.box-title
+      = notebook.new_record? ? 'New Notebook' : 'Edit Notebook'
+  .box-body.pad
+    = form_for notebook, layout: :horizontal do |f|
+      = f.text_field :name
+      = f.submit class: 'btn btn-primary'

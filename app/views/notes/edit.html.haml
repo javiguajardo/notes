@@ -1,9 +1,9 @@
 .page-header
-  = link_to notes_path, :class => 'btn btn-default' do
+  = link_to notes_path, class: 'btn btn-default' do
     %span.glyphicon.glyphicon-list-alt
     Back
   = link_to @note, :class => 'btn btn-primary' do
     %span.glyphicon.glyphicon-info-sign
     Show
 
-= render 'form'
+= render 'form', note: @note

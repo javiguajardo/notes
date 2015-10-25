@@ -24,6 +24,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :username, presence: true, uniqueness: true, length: {minimum: 4, maximum: 14},
+  validates :username, presence: true, uniqueness: {case_sensitive: false}, length: {minimum: 4, maximum: 14},
             format: {with: /(^[a-zA-Z0-9_-]+$)/}
 end

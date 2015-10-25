@@ -1,0 +1,48 @@
+.page-header
+  = link_to notebooks_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_notebook_path(@notebook), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  = link_to notebook_path(@notebook), class: 'btn btn-danger', data: { confirm: 'Are you sure?' }, method: :delete do
+    %span.glyphicon.glyphicon-remove
+    Delete
+
+.col-md-12
+  .box
+    .box-header.with-border
+      %h3.box-title
+        = @notebook.name
+
+  .box
+    .box-header.with-border
+      %h3.box-title
+        Listing Notes
+    .box-body.table-responsive.no-padding
+      %table.table.table-striped.table-bordered.table-hover
+        %thead
+          %tr
+            %th{rowspan: '1', colspan: '1'} Title
+            %th{rowspan: '1', colspan: '1'} Content
+            %th{rowspan: '1', colspan: '1', style: 'width: 133px; text-align: center;'} Actions
+
+        %tbody
+          - @notebook.notes.each do |note|
+            %tr.gradeX
+              %td= note.title
+              %td= note.content
+              %td
+                .btn-group
+                  .row
+                    = link_to '<i class="fa fa-search"></i>'.html_safe, note, class: 'btn btn-xs btn-success grow',
+                                title: 'Show'
+                    = link_to '<i class="fa fa-edit"></i>'.html_safe, edit_note_path(note),
+                                class: 'btn btn-xs btn-primary grow', title: 'Edit'
+                    = link_to '<i class="fa fa-trash grow"></i>'.html_safe, note, data: { confirm: 'Are you sure?' },
+                                method: :delete, title: 'Delete', class: 'btn btn-xs btn-danger grow'
+    .box-footer.clearfix
+      = custom_paginator(@notes)
+
+
+
