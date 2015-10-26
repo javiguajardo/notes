@@ -56,4 +56,3 @@ class RolesController < ApplicationController
     params.require(:role).permit(:name, :key, :description)
   end
 end
- 

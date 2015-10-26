@@ -21,3 +21,4 @@
 //= require users
 //= require data-confirm-modal
 //= require roles
+//= require bootstrap-datepicker

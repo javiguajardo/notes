@@ -1,0 +1,16 @@
+.box
+  .box-header
+    %h3.box-title
+      = task.new_record? ? 'New Task' : 'Edit Task'
+  .box-body.pad
+    = form_for task, layout: :horizontal do |f|
+      = f.text_field :name
+      .form-group
+        %label{class: 'col-sm-3 control-label', for: 'note_notebook'}
+          Course
+        .col-sm-9
+          = f.collection_select(:course_id, policy_scope(Course.all), :id, :name, {prompt: 'Select course'},
+                                {class: 'form-control'})
+      = f.text_field :deadline_date, class: 'datepicker'
+      = f.check_box :complete
+      = f.submit class: 'btn btn-primary'

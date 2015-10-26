@@ -14,6 +14,7 @@ class Course < ActiveRecord::Base
   validates :user_id, presence: true
 
   belongs_to :user
+  has_many :tasks, dependent: :restrict_with_error
 
   def set_course_user(user)
     self.user_id = user.id

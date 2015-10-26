@@ -97,6 +97,8 @@ GEM
       activesupport
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    bootstrap-datepicker-rails (1.4.0)
+      railties (>= 3.0)
     bootstrap-sass (3.3.5.1)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
@@ -439,6 +441,7 @@ DEPENDENCIES
   activeadmin!
   annotate
   bh
+  bootstrap-datepicker-rails
   bootstrap-sass
   bootstrap-wysihtml5-rails
   breadcrumbs_on_rails
