@@ -1,0 +1,8 @@
+.box
+  .box-header
+    %h3.box-title
+      = course.new_record? ? 'New Course' : 'Edit Course'
+  .box-body.pad
+    = form_for course, layout: :horizontal do |f|
+      = f.text_field :name
+      = f.submit class: 'btn btn-primary'

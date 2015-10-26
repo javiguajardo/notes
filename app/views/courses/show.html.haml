@@ -1,0 +1,21 @@
+.page-header
+  - if policy(Course).index?
+    = link_to courses_path, class: 'btn btn-default' do
+      %span.glyphicon.glyphicon-list-alt
+      Back
+  - if policy(Course).edit?
+    = link_to edit_course_path(@course), class: 'btn btn-primary' do
+      %span.glyphicon.glyphicon-pencil
+      Edit
+  - if policy(Course).destroy?
+    = link_to course_path(@course), class: 'btn btn-danger', title: 'Delete Course',
+              data: { confirm: "Are you sure you want to delete the course #{@course.name}?" }, method: :delete do
+      %span.glyphicon.glyphicon-remove
+      Delete
+
+.col-md-12
+  .box
+    .box-header.with-border
+      %h3.box-title
+        = @course.name
+

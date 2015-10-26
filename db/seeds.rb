@@ -22,9 +22,14 @@ User.set_callback(:create, :before, :set_default_role)
 # Notebook seeds
 Notebook.create(name: 'Default', user_id: User.find_by_username('admin').id)
 
-# Generate 50 notes.
+# Note seeds.
 50.times do |i|
   Note.create(title: Faker::Book.title, content: Faker::Lorem.paragraph,
               notebook_id: Notebook.find_by_name('Default').id,
               user_id: User.find_by_username('admin').id)
+end
+
+# Class seeds
+50.times do |i|
+  Course.create(name: Faker::App.name, user_id: User.find_by_username('admin').id)
 end
