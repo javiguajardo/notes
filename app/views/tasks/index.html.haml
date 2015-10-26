@@ -1,0 +1,37 @@
+.page-header
+  - if policy(Task).new?
+    = link_to new_task_path, class: 'btn btn-primary' do
+      %span.glyphicon.glyphicon-plus
+      New Task
+
+.box
+  .box-header.with-border
+    %h3.box-title
+      Listing Tasks
+  .box-body.table-responsive.no-padding
+    %table.table.table-striped.table-bordered.table-hover
+      %thead
+        %tr
+          %th{rowspan: '1', colspan: '1'} Name
+          %th{rowspan: '1', colspan: '1'} Deadline date
+          %th{rowspan: '1', colspan: '1'} Complete
+          %th{rowspan: '1', colspan: '1', style: 'width: 133px; text-align: center;'} Actions
+
+      %tbody
+        - @tasks.each do |task|
+          %tr.gradeX
+            %td= task.name
+            %td= task.deadline_date
+            %td= task.complete
+            %td
+              .btn-group
+                .row
+                  = link_item '<i class="fa fa-search"></i>'.html_safe, task_path(task), class: 'btn btn-xs btn-success grow',
+                              title: 'Show'
+                  = link_item '<i class="fa fa-edit"></i>'.html_safe, edit_task_path(task),
+                              class: 'btn btn-xs btn-primary grow', title: 'Edit'
+                  = link_item '<i class="fa fa-trash grow"></i>'.html_safe, task_path(task),
+                              data: { confirm: "Are you sure you want to delete the task #{task.name}?" },
+                              method: :delete, title: 'Delete Task', class: 'btn btn-xs btn-danger grow'
+  .box-footer.clearfix
+    = custom_paginator(@tasks)

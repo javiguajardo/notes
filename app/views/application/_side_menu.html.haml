@@ -52,3 +52,14 @@
               =link_item "<i class='fa fa-circle-o'></i> New course".html_safe, new_course_path
             %li
               =link_item "<i class='fa fa-circle-o'></i> All courses".html_safe, courses_path
+      - if policy(Task).new? or policy(Task).index?
+        %li.treeview
+          %a{href: '#'}
+            %i.fa.fa-tasks
+            %span Tasks
+            %i.fa.fa-angle-left.pull-right
+          %ul.treeview-menu
+            %li
+              =link_item "<i class='fa fa-circle-o'></i> New task".html_safe, new_task_path
+            %li
+              =link_item "<i class='fa fa-circle-o'></i> All tasks".html_safe, tasks_path

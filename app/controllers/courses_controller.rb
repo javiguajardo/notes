@@ -29,7 +29,7 @@ class CoursesController < ApplicationController
     @course = Course.new(course_params)
     @course.set_course_user(current_user)
     authorize @course
-    flash[:notice] = 'Notebook was successfully created.' if @course.save
+    flash[:notice] = 'Course was successfully created.' if @course.save
     respond_with(@course)
   end
 
@@ -54,7 +54,7 @@ class CoursesController < ApplicationController
   end
 
   def course_params
-    params.require(:course).permit(:name)
+    params.require(:course).permit(:name, :user_id)
   end
 end
  

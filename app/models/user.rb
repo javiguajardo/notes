@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   has_many :notebooks, dependent: :destroy
   has_many :notes, dependent: :destroy
   has_many :courses, dependent: :destroy
+  has_many :tasks, dependent: :destroy
 
   def admin?
     role and role.key == 'admin'

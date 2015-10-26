@@ -29,7 +29,13 @@ Notebook.create(name: 'Default', user_id: User.find_by_username('admin').id)
               user_id: User.find_by_username('admin').id)
 end
 
-# Class seeds
+# Course seeds
 50.times do |i|
   Course.create(name: Faker::App.name, user_id: User.find_by_username('admin').id)
+end
+
+# Task seeds
+50.times do |i|
+  Task.create(name: Faker::App.name, deadline_date: Faker::Date.forward(30),
+              user_id: User.find_by_username('admin').id)
 end
