@@ -5,7 +5,7 @@ class NotebooksController < ApplicationController
   respond_to :html, :json, :js
 
   def index
-    @notebooks = Notebook.paginate(page: params[:page], per_page: 10).order('id DESC')
+    @notebooks = policy_scope(Notebook).paginate(page: params[:page], per_page: 10).order('id DESC')
     authorize @notebooks
   end
 

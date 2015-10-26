@@ -9,7 +9,7 @@
         %label{class: 'col-sm-3 control-label', for: 'note_notebook'}
           Notebook
         .col-sm-9
-          = f.collection_select(:notebook_id, Notebook.all, :id, :name, {prompt: 'Select notebook'},
+          = f.collection_select(:notebook_id, policy_scope(Notebook.all), :id, :name, {prompt: 'Select notebook'},
                               {class: 'form-control'})
       = f.text_field :title
       = f.text_area :content, class: 'wysihtml5'

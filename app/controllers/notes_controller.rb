@@ -5,7 +5,7 @@ class NotesController < ApplicationController
   respond_to :html, :json, :js
 
   def index
-    @notes = Note.paginate(page: params[:page], per_page: 10).order('id DESC')
+    @notes = policy_scope(Note).paginate(page: params[:page], per_page: 10).order('id DESC')
     authorize @notes
   end
 

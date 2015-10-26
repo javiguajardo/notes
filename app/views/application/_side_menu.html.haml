@@ -26,7 +26,7 @@
               =link_item "<i class='fa fa-circle-o'></i> New notebook".html_safe, new_notebook_path
             %li
               =link_item "<i class='fa fa-circle-o'></i> All notebooks".html_safe, notebooks_path
-            - Notebook.all.each do |notebook|
+            - policy_scope(Notebook).all.each do |notebook|
               %li
                 =link_item "<i class='fa fa-circle-o'></i> #{notebook.name}".html_safe,
                 notebook_path(notebook.id)
