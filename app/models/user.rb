@@ -26,8 +26,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   before_create :set_default_role
 
-  validates :username, presence: true, uniqueness: {case_sensitive: false}, length: {minimum: 4, maximum: 14},
-            format: {with: /(^[a-zA-Z0-9_-]+$)/}
+  validates :username, presence: true, uniqueness: {scope: :role, case_sensitive: false},
+            length: {minimum: 4, maximum: 14}, format: {with: /(^[a-zA-Z0-9_-]+$)/}
 
   belongs_to :role
   has_many :notebooks, dependent: :destroy

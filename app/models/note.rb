@@ -12,11 +12,11 @@
 #
 
 class Note < ActiveRecord::Base
-  validates :title, presence: true, uniqueness: {scope: :notebook, case_sensitive: false}
+  validates :title, presence: true, uniqueness: {scope: [:notebook, :user], case_sensitive: false}
   validates :content, presence: true
   validates :notebook_id, presence: true
   validates :user_id, presence: true
-  
+
   belongs_to :notebook
   belongs_to :user
   delegate :name, to: :notebook, prefix: true

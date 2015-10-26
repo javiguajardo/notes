@@ -13,12 +13,16 @@
       %thead
         %tr
           %th{rowspan: '1', colspan: '1'} Name
+          - if current_user.admin?
+            %th{rowspan: '1', colspan: '1'} Username
           %th{rowspan: '1', colspan: '1', style: 'width: 133px; text-align: center;'} Actions
 
       %tbody
         - @notebooks.each do |notebook|
           %tr.gradeX
             %td= notebook.name
+            - if current_user.admin?
+              %td= notebook.user.username
             %td
               .btn-group
                 .row

@@ -15,6 +15,8 @@
           %th{rowspan: '1', colspan: '1'} Name
           %th{rowspan: '1', colspan: '1'} Deadline date
           %th{rowspan: '1', colspan: '1'} Complete
+          - if current_user.admin?
+            %th{rowspan: '1', colspan: '1'} Username
           %th{rowspan: '1', colspan: '1', style: 'width: 133px; text-align: center;'} Actions
 
       %tbody
@@ -23,6 +25,8 @@
             %td= task.name
             %td= task.deadline_date
             %td= task.complete
+            - if current_user.admin?
+              %td= task.user.username
             %td
               .btn-group
                 .row

@@ -14,7 +14,7 @@
 #
 
 class Task < ActiveRecord::Base
-  validates :name, presence: true, uniqueness: {case_sensitive: false}
+  validates :name, presence: true, uniqueness: {scope: [:user, :course], case_sensitive: false}
   validates :deadline_date, presence: true, format: {with: /\d{4}-\d{2}-\d{2}/,
                                                      message: 'date must have format yyyy-mm-dd'}
   validates :user_id, presence: true

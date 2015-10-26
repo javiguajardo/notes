@@ -15,6 +15,8 @@
           %th{rowspan: '1', colspan: '1'} Title
           %th{rowspan: '1', colspan: '1'} Content
           %th{rowspan: '1', colspan: '1'} Notebook
+          - if current_user.admin?
+            %th{rowspan: '1', colspan: '1'} Username
           %th{rowspan: '1', colspan: '1', style: 'width: 133px; text-align: center;'} Actions
 
       %tbody
@@ -23,6 +25,8 @@
             %td= note.title
             %td= note.content
             %td= note.notebook_name
+            - if current_user.admin?
+              %td= note.user.username
             %td
               .btn-group
                 .row
