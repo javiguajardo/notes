@@ -18,11 +18,12 @@
     .box-header.with-border
       %h3.box-title
         = @notebook.name
-
-  .box
-    .box-header.with-border
-      %h3.box-title
-        Listing Notes
+      .box-tools.pull-right
+        %h3.box-title.text-muted
+          = @notebook.notes.count
+          notes
+        %button{class: 'btn btn-box-tool', 'data-widget' => 'collapse'}
+          %i.fa.fa-minus
     .box-body.table-responsive.no-padding
       %table.table.table-striped.table-bordered.table-hover
         %thead
