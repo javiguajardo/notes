@@ -22,6 +22,8 @@ class Task < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
 
+  delegate :username, to: :user, prefix: true
+
   def set_task_user(user)
     self.user_id = user.id
   end

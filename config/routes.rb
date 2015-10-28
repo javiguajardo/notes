@@ -22,5 +22,5 @@ Rails.application.routes.draw do
     root "notes#index", as: "authenticated_root"
   end
 
-  root "home#index", as: 'unathenticated_root'
+  root "home#index", as: 'unauthenticated_root'
 end

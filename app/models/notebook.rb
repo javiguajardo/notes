@@ -16,6 +16,8 @@ class Notebook < ActiveRecord::Base
   has_many :notes, dependent: :restrict_with_error
   belongs_to :user
 
+  delegate :username, to: :user, prefix: true
+
   def set_notebook_user(user)
     self.user_id = user.id
   end

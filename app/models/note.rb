@@ -19,7 +19,9 @@ class Note < ActiveRecord::Base
 
   belongs_to :notebook
   belongs_to :user
+
   delegate :name, to: :notebook, prefix: true
+  delegate :username, to: :user, prefix: true
 
   def set_note_user(user)
     self.user_id = user.id
