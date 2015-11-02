@@ -7,6 +7,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  user_id    :integer
+#  course_id  :integer
 #
 
 class Notebook < ActiveRecord::Base
@@ -15,6 +16,7 @@ class Notebook < ActiveRecord::Base
 
   has_many :notes, dependent: :restrict_with_error
   belongs_to :user
+  belongs_to :course
 
   delegate :username, to: :user, prefix: true
 

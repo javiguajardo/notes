@@ -5,4 +5,10 @@
   .box-body.pad
     = form_for notebook, layout: :horizontal do |f|
       = f.text_field :name
+      .form-group
+        %label{class: 'col-sm-3 control-label', for: 'notebook_course'}
+          Course
+        .col-sm-9
+          = f.collection_select(:course_id, policy_scope(Course.all), :id, :name, {prompt: 'Select course'},
+                                {class: 'form-control'})
       = f.submit class: 'btn btn-primary'

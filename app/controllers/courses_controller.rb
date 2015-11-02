@@ -11,6 +11,8 @@ class CoursesController < ApplicationController
 
   def show
     add_breadcrumb "#{@course.name}", course_path
+    @tasks = policy_scope(Task).paginate(page: params[:page], per_page: 10).order('id DESC')
+    @notebooks = policy_scope(Notebook).paginate(page: params[:page], per_page: 10).order('id DESC')
     authorize @course
   end
 

@@ -15,6 +15,7 @@ class Course < ActiveRecord::Base
 
   belongs_to :user
   has_many :tasks, dependent: :restrict_with_error
+  has_many :notebooks, dependent: :restrict_with_error
 
   def set_course_user(user)
     self.user_id = user.id

@@ -18,4 +18,85 @@
     .box-header.with-border
       %h3.box-title
         = @course.name
+.col-md-6
+  .box
+    .box-header.with-border
+      %h3.box-title
+        Listing Tasks
+      .box-tools.pull-right
+        %h3.box-title.text-muted
+          = @course.tasks.count
+          tasks
+        %button{class: 'btn btn-box-tool', 'data-widget' => 'collapse'}
+          %i.fa.fa-minus
+    .box-body.table-responsive.no-padding
+      %table.table.table-striped.table-bordered.table-hover
+        %thead
+          %tr
+            %th{rowspan: '1', colspan: '1'} Name
+            %th{rowspan: '1', colspan: '1'} Deadline date
+            %th{rowspan: '1', colspan: '1'} Complete
+            - if current_user.admin?
+              %th{rowspan: '1', colspan: '1'} Username
+            %th{rowspan: '1', colspan: '1', style: 'width: 133px; text-align: center;'} Actions
+
+        %tbody
+          - @course.tasks.each do |task|
+            %tr.gradeX
+              %td= task.name
+              %td= task.deadline_date
+              %td= task.complete
+              - if current_user.admin?
+                %td= task.user_username
+              %td
+                .btn-group
+                  .row
+                    = link_item '<i class="fa fa-search"></i>'.html_safe, task_path(task), class: 'btn btn-xs btn-success grow',
+                                title: 'Show'
+                    = link_item '<i class="fa fa-edit"></i>'.html_safe, edit_task_path(task),
+                                class: 'btn btn-xs btn-primary grow', title: 'Edit'
+                    = link_item '<i class="fa fa-trash grow"></i>'.html_safe, task_path(task),
+                                data: { confirm: "Are you sure you want to delete the task #{task.name}?" },
+                                method: :delete, title: 'Delete Task', class: 'btn btn-xs btn-danger grow'
+    .box-footer.clearfix
+      = custom_paginator(@tasks)
+.col-md-6
+  .box
+    .box-header.with-border
+      %h3.box-title
+        Listing Notebooks
+      .box-tools.pull-right
+        %h3.box-title.text-muted
+          = @course.notebooks.count
+          notebooks
+        %button{class: 'btn btn-box-tool', 'data-widget' => 'collapse'}
+          %i.fa.fa-minus
+    .box-body.table-responsive.no-padding
+      %table.table.table-striped.table-bordered.table-hover
+        %thead
+          %tr
+            %th{rowspan: '1', colspan: '1'} Name
+            - if current_user.admin?
+              %th{rowspan: '1', colspan: '1'} Username
+            %th{rowspan: '1', colspan: '1', style: 'width: 133px; text-align: center;'} Actions
+
+        %tbody
+          - @course.notebooks.each do |notebook|
+            %tr.gradeX
+              %td= notebook.name
+              - if current_user.admin?
+                %td= notebook.user_username
+              %td
+                .btn-group
+                  .row
+                    = link_item '<i class="fa fa-search"></i>'.html_safe, notebook_path(notebook), class: 'btn btn-xs btn-success grow',
+                                title: 'Show'
+                    = link_item '<i class="fa fa-edit"></i>'.html_safe, edit_notebook_path(notebook),
+                                class: 'btn btn-xs btn-primary grow', title: 'Edit'
+                    = link_item '<i class="fa fa-trash grow"></i>'.html_safe, notebook_path(notebook),
+                                 data: { confirm: "Are you sure you want to delete the notebook #{notebook.name}?" },
+                                 method: :delete, title: 'Delete Notebook', class: 'btn btn-xs btn-danger grow'
+    .box-footer.clearfix
+      = custom_paginator(@notebooks)
+
 
