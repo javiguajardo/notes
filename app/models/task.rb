@@ -10,7 +10,6 @@
 #  updated_at    :datetime         not null
 #  user_id       :integer
 #  course_id     :integer
-#  start_date    :date
 #
 
 class Task < ActiveRecord::Base

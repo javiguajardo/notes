@@ -13,12 +13,14 @@
       %thead
         %tr
           %th{rowspan: '1', colspan: '1'} Name
+          %th{rowspan: '1', colspan: '1'} Username
           %th{rowspan: '1', colspan: '1', style: 'width: 133px; text-align: center;'} Actions
 
       %tbody
         - @courses.each do |course|
           %tr.gradeX
             %td= course.name
+            %td= course.user_username
             %td
               .btn-group
                 .row

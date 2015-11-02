@@ -56,6 +56,6 @@ class NotebooksController < ApplicationController
   end
 
   def notebook_params
-    params.require(:notebook).permit(:name, :user_id)
+    params.require(:notebook).permit(:name, :user_id, :course_id)
   end
 end
