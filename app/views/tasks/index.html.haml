@@ -1,41 +1,72 @@
-.page-header
-  - if policy(Task).new?
-    = link_to new_task_path, class: 'btn btn-primary' do
-      %span.glyphicon.glyphicon-plus
-      New Task
-
-.box
-  .box-header.with-border
-    %h3.box-title
-      Listing Tasks
-  .box-body.table-responsive.no-padding
-    %table.table.table-striped.table-bordered.table-hover
-      %thead
-        %tr
-          %th{rowspan: '1', colspan: '1'} Name
-          %th{rowspan: '1', colspan: '1'} Deadline date
-          %th{rowspan: '1', colspan: '1'} Complete
-          - if current_user.admin?
-            %th{rowspan: '1', colspan: '1'} Username
-          %th{rowspan: '1', colspan: '1', style: 'width: 133px; text-align: center;'} Actions
-
-      %tbody
-        - @tasks.each do |task|
-          %tr.gradeX
-            %td= task.name
-            %td= task.deadline_date
-            %td= task.complete
-            - if current_user.admin?
-              %td= task.user_username
-            %td
-              .btn-group
-                .row
-                  = link_item '<i class="fa fa-search"></i>'.html_safe, task_path(task), class: 'btn btn-xs btn-success grow',
-                              title: 'Show'
-                  = link_item '<i class="fa fa-edit"></i>'.html_safe, edit_task_path(task),
-                              class: 'btn btn-xs btn-primary grow', title: 'Edit'
-                  = link_item '<i class="fa fa-trash grow"></i>'.html_safe, task_path(task),
-                              data: { confirm: "Are you sure you want to delete the task #{task.name}?" },
-                              method: :delete, title: 'Delete Task', class: 'btn btn-xs btn-danger grow'
-  .box-footer.clearfix
-    = custom_paginator(@tasks)
+%section.content-header
+  %h1
+    Tasks
+%section.content
+  .row
+    .col-md-3
+      .box.box-solid
+        .box-header.with-border
+          %h4.box-title
+            Draggable Events
+        .box-body
+          #external-events
+            .checkbox
+              %label{for: 'drop-remove'}
+                %input{type: 'checkbox', id: 'drop-remove'}
+                remove after drop
+      .box.box-solid
+        .box-header.with-border
+          %h3.box-title
+            Create Event
+        .box-body
+          %div{class: 'btn-group', style: 'width: 100%; margin-bottom: 10px;'}
+            %ul.fc-color-picker#color-chooser
+              %li
+                %a.text-aqua{:href => "#"}
+                  %i.fa.fa-square
+              %li
+                %a.text-blue{:href => "#"}
+                  %i.fa.fa-square
+              %li
+                %a.text-light-blue{:href => "#"}
+                  %i.fa.fa-square
+              %li
+                %a.text-teal{:href => "#"}
+                  %i.fa.fa-square
+              %li
+                %a.text-yellow{:href => "#"}
+                  %i.fa.fa-square
+              %li
+                %a.text-orange{:href => "#"}
+                  %i.fa.fa-square
+              %li
+                %a.text-green{:href => "#"}
+                  %i.fa.fa-square
+              %li
+                %a.text-lime{:href => "#"}
+                  %i.fa.fa-square
+              %li
+                %a.text-red{:href => "#"}
+                  %i.fa.fa-square
+              %li
+                %a.text-purple{:href => "#"}
+                  %i.fa.fa-square
+              %li
+                %a.text-fuchsia{:href => "#"}
+                  %i.fa.fa-square
+              %li
+                %a.text-muted{:href => "#"}
+                  %i.fa.fa-square
+              %li
+                %a.text-navy{:href => "#"}
+                  %i.fa.fa-square
+          .input-group
+            %input{type: 'text', id: 'new-event', class: 'form-control', placeholder: 'Event Title'}
+            .input-group-btn
+              %button{id: 'add-new-event', type: 'button', class: 'btn btn-primary btn-flat',
+              style: 'border-color: rgb(221, 75, 57); background-color: rgb(221, 75, 57);'}
+                Add
+    .col-md-9
+      .box.box-primary
+        .box-body.no-padding
+          #calendar.fc.fc-ltr.fc-unthemed
