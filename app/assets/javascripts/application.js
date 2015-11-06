@@ -25,5 +25,5 @@
 //= require moment
 //= require fullcalendar
 //= require calendar
-//= require jquery-ui
+//= require jquery-ui/draggable
 

@@ -1,0 +1,20 @@
+- @title = 'Resend Confirmation'
+.login-box
+  .login-logo
+    %a{href: "#"}
+      %b UniNotas
+  .login-box-body
+    %p.login-box-msg
+      Resend Confirmation Instructions
+    = form_for(resource, as: resource_name, url: confirmation_path(resource_name), layout: :horizontal,
+               html: { method: :post }) do |f|
+      .has-feedback
+        = devise_error_messages!
+      .has-feedback
+        = f.email_field :email, autofocus: true
+        %span.glyphicon.glyphicon-envelope.form-control-feedback
+
+      = f.submit 'Resend confirmation instructions', class: 'btn btn-primary btn-block btn-flat'
+
+    %p.text-right
+      = render partial: 'devise/shared/links'
