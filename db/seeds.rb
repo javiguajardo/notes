@@ -15,7 +15,7 @@ Role.create(name: 'Visitor', key: 'visitor', description: 'User that visits the 
 User.skip_callback(:create, :before, :set_default_role)
 
 User.create(username: 'admin', email: 'admin@example.com', password: 'password',
-            password_confirmation: 'password', role: Role.find_by_key('admin'))
+            password_confirmation: 'password', role: Role.find_by_key('admin'), confirmed_at: Time.now)
 
 User.set_callback(:create, :before, :set_default_role)
 
