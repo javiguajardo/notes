@@ -5,6 +5,7 @@
   .box-body.pad
     = form_for task, layout: :horizontal do |f|
       = f.text_field :name
+      = f.text_area :description
       .form-group
         %label{class: 'col-sm-3 control-label', for: 'task_course'}
           Course

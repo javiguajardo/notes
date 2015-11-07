@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html style="padding: 10px; float:left; margin: 0px; width: 50%;">
+<head>
+  <meta charset="utf-8">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body style="font: 18px 'Open Sans', sans-serif;color: black; width: 724px;">
+<div style="border-bottom: 3px solid grey; text-align:center; padding: 10px; background-color: #F9F9F9 ;">
+  <p>UniNotas</p>
+</div>
+
+<div style="padding: 10px; background-color: #F9F9F9 ;">
+  <h2 style="margin: 12px 0; color: black;">Hello <%= @user.username %>!</h2>
+
+  <div style="margin: 20px;">
+    <p style="color: black;">Just to remind you that you have a task that needs work.</p>
+
+    <p><strong>Name:</strong> <%= @task.name %></p>
+
+    <p><strong>Date:</strong> <%= @task.deadline_date.to_formatted_s(:long) %></p>
+
+    <p><strong>Description:</strong> <%= @task.description %></p>
+  </div>
+</div>
+<div style="text-align: left; border-top: 2px solid gray; margin-top: 10px; display: -webkit-box; width: 100%; padding: 10px 0; font-size: 10px; background-color: #F9F9F9; color: black;">
+  Universidad Autónoma de Chihuahua<br>
+  Avenida Universidad S/n, Arboledas, 31110<br>
+  Tel. +52 (614) 413 4795<br>
+  Chihuahua, Chih. México
+</div>
+</body>
+</html>

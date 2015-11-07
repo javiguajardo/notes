@@ -10,6 +10,7 @@
 #  updated_at    :datetime         not null
 #  user_id       :integer
 #  course_id     :integer
+#  description   :text
 #
 
 class Task < ActiveRecord::Base
@@ -17,6 +18,7 @@ class Task < ActiveRecord::Base
   validates :deadline_date, presence: true, format: {with: /\d{4}-\d{2}-\d{2}/,
                                                      message: 'date must have format yyyy-mm-dd'}
   validates :user_id, presence: true
+  validates :description, presence: true
 
   belongs_to :user
   belongs_to :course

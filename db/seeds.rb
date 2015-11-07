@@ -36,6 +36,6 @@ end
 
 # Task seeds
 50.times do |i|
-  Task.create(name: Faker::App.name, deadline_date: Faker::Date.forward(30),
+  Task.create(name: Faker::App.name, deadline_date: Faker::Date.forward(30), description: Faker::Lorem.paragraph,
               user_id: User.find_by_username('admin').id)
 end

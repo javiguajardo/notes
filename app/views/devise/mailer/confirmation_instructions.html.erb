@@ -1,5 +1,40 @@
-<p>Welcome <%= @email %>!</p>
+<!DOCTYPE html>
+<html style="padding: 10px; float:left; margin: 0px; width: 50%;">
+<head>
+  <meta charset="utf-8">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body style="font: 18px 'Open Sans', sans-serif; color: black; width: 724px;">
+<div style="border-bottom: 3px solid grey; text-align:center; padding: 10px; background-color: #F9F9F9 ;">
+  <p>UniNotas</p>
+</div>
+<div style="padding: 10px; background-color: #F9F9F9 ;">
+  <h2 style="margin: 12px 0; color: black;">Welcome <%= @user.username %>!</h2>
 
-<p>You can confirm your account email through the link below:</p>
+  <p style="margin:12px 0;">
+    You can confirm your account email through the link below:
+  </p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+  <p style="margin:12px 0;">
+  <table cellspacing="0" cellpadding="0" border="0" style="margin: 18px 0;">
+    <tbody>
+    <tr>
+      <td height="44" align="center" style="background: #367fa9 repeat-x; border-radius: 0px; font-weight: normal; white-space:nowrap; min-height:44px;">
+        <%= link_to "<span style='padding: 7px 14px; color:#fff;'>Confirm my account</span>".html_safe,
+                    confirmation_url(@resource, confirmation_token: @token), style: 'text-decoration:none;
+                    font-size:18px;text-align:center;vertical-align:middle;font-weight:normal' %>
+
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  </p>
+</div>
+<div style="text-align: left; border-top: 2px solid gray; margin-top: 10px; display: -webkit-box; width: 100%; padding: 10px 0; font-size: 10px; background-color: #F9F9F9; color: black;">
+  <p>Universidad Autónoma de Chihuahua<br>
+    Avenida Universidad S/n, Arboledas, 31110<br>
+    Tel. +52 (614) 413 4795<br>
+    Chihuahua, Chih. México</p>
+</div>
+</body>
+</html>

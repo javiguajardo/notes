@@ -17,6 +17,10 @@
 #  updated_at             :datetime
 #  username               :string
 #  role_id                :integer
+#  confirmation_token     :string
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  unconfirmed_email      :string
 #
 
 class User < ActiveRecord::Base

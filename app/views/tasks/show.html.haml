@@ -21,7 +21,7 @@
     .box-body
       %p
         %strong Deadline Date:
-        = @task.deadline_date
+        = @task.deadline_date.to_formatted_s(:long)
       %p
         %strong Complete:
         = @task.complete

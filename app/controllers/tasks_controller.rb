@@ -26,10 +26,14 @@ class TasksController < ApplicationController
   end
 
   def create
+    @user = current_user
     @task = Task.new(task_params)
     @task.set_task_user(current_user)
     authorize @task
-    flash[:notice] = 'Task was successfully created.' if @task.save
+    if @task.save
+      ReminderMailer.reminder_email(@user, @task).deliver_later
+      flash[:notice] = 'Task was successfully created.'
+    end
     respond_with(@task)
   end
 
@@ -50,6 +54,6 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :deadline_date, :complete, :user_id, :course_id)
+    params.require(:task).permit(:name, :deadline_date, :complete, :user_id, :course_id, :description)
   end
 end

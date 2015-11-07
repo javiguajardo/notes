@@ -60,13 +60,17 @@
       to see more useful Rails Best Practices.
     </p>
     <p>
-        Found 7 warnings.
+        Found 8 warnings.
     </p>
     <table>
           <tr>
               <td>
                 <input type="checkbox" class="error-type" id="RemoveEmptyHelpersReview" value="RemoveEmptyHelpersReview"
                 />&nbsp;<label for="RemoveEmptyHelpersReview">Remove Empty Helpers</label>
+              </td>
+              <td>
+                <input type="checkbox" class="error-type" id="UseMultipartAlternativeAsContentTypeOfEmailReview" value="UseMultipartAlternativeAsContentTypeOfEmailReview"
+                />&nbsp;<label for="UseMultipartAlternativeAsContentTypeOfEmailReview">Use Multipart Alternative As Content Type Of Email</label>
               </td>
               <td>
                 <input type="checkbox" class="error-type" id="RemoveTrailingWhitespaceCheck" value="RemoveTrailingWhitespaceCheck"
@@ -141,6 +145,15 @@
             <td class='line'>1</td>
             <td class='message'>
               <a href='http://rails-bestpractices.com/posts/2011/04/09/remove-empty-helpers/' target='_blank'>remove empty helpers</a>
+            </td>
+          </tr>
+          <tr class="UseMultipartAlternativeAsContentTypeOfEmailReview">
+            <td class='filename'>
+                app/mailers/reminder_mailer.rb
+            </td>
+            <td class='line'>4</td>
+            <td class='message'>
+              <a href='http://rails-bestpractices.com/posts/2010/08/05/use-multipart-alternative-as-content_type-of-email/' target='_blank'>use multipart/alternative as content_type of email</a>
             </td>
           </tr>
           <tr class="RemoveTrailingWhitespaceCheck">
