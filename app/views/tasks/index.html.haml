@@ -3,70 +3,7 @@
     Tasks
 %section.content
   .row
-    .col-md-3
-      .box.box-solid
-        .box-header.with-border
-          %h4.box-title
-            Draggable Events
-        .box-body
-          #external-events
-            .checkbox
-              %label{for: 'drop-remove'}
-                %input{type: 'checkbox', id: 'drop-remove'}
-                remove after drop
-      .box.box-solid
-        .box-header.with-border
-          %h3.box-title
-            Create Event
-        .box-body
-          %div{class: 'btn-group', style: 'width: 100%; margin-bottom: 10px;'}
-            %ul.fc-color-picker#color-chooser
-              %li
-                %a.text-aqua{:href => "#"}
-                  %i.fa.fa-square
-              %li
-                %a.text-blue{:href => "#"}
-                  %i.fa.fa-square
-              %li
-                %a.text-light-blue{:href => "#"}
-                  %i.fa.fa-square
-              %li
-                %a.text-teal{:href => "#"}
-                  %i.fa.fa-square
-              %li
-                %a.text-yellow{:href => "#"}
-                  %i.fa.fa-square
-              %li
-                %a.text-orange{:href => "#"}
-                  %i.fa.fa-square
-              %li
-                %a.text-green{:href => "#"}
-                  %i.fa.fa-square
-              %li
-                %a.text-lime{:href => "#"}
-                  %i.fa.fa-square
-              %li
-                %a.text-red{:href => "#"}
-                  %i.fa.fa-square
-              %li
-                %a.text-purple{:href => "#"}
-                  %i.fa.fa-square
-              %li
-                %a.text-fuchsia{:href => "#"}
-                  %i.fa.fa-square
-              %li
-                %a.text-muted{:href => "#"}
-                  %i.fa.fa-square
-              %li
-                %a.text-navy{:href => "#"}
-                  %i.fa.fa-square
-          .input-group
-            %input{type: 'text', id: 'new-event', class: 'form-control', placeholder: 'Event Title'}
-            .input-group-btn
-              %button{id: 'add-new-event', type: 'button', class: 'btn btn-primary btn-flat',
-              style: 'border-color: rgb(221, 75, 57); background-color: rgb(221, 75, 57);'}
-                Add
-    .col-md-9
+    .col-md-12
       .box.box-primary
         .box-body.no-padding
           #calendar.fc.fc-ltr.fc-unthemed
