@@ -1,0 +1,23 @@
+%div{"aria-hidden" => "false", "data-backdrop" => "static", :tabindex => "-1",
+      id: "#{task.name}", class: 'modal fade in'}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %i.fa.fa-times
+        %h4.modal-title
+          = task.name
+      .modal-body
+        %p
+          %strong Description:
+          = task.description
+        %p
+          %strong Deadline Date:
+          = task.deadline_date.to_formatted_s(:long)
+        %p
+          %strong Complete:
+          = task.complete
+        -unless task.course.blank?
+          %p
+            %strong Complete:
+            = task.course.name

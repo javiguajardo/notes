@@ -20,6 +20,8 @@ class Task < ActiveRecord::Base
   validates :user_id, presence: true
   validates :description, presence: true
 
+  before_validation :format_name
+
   belongs_to :user
   belongs_to :course
 
@@ -27,5 +29,11 @@ class Task < ActiveRecord::Base
 
   def set_task_user(user)
     self.user_id = user.id
+  end
+
+  protected
+
+  def format_name
+    self.name = self.name.squish.gsub(' ', '_')
   end
 end

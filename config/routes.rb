@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :tasks
+  resources :tasks, except: [:show]
   resources :courses
   resources :roles
   resources :notebooks

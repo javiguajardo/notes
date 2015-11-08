@@ -7,3 +7,8 @@
       .box.box-primary
         .box-body.no-padding
           #calendar.fc.fc-ltr.fc-unthemed
+-@tasks.each do |task|
+  = render 'show', task: task
+
+
+

@@ -9,11 +9,6 @@ class TasksController < ApplicationController
     authorize @tasks
   end
 
-  def show
-    add_breadcrumb "#{@task.name}", task_path
-    authorize @task
-  end
-
   def new
     add_breadcrumb 'New', new_task_path
     @task = Task.new
@@ -33,14 +28,14 @@ class TasksController < ApplicationController
     if @task.save
       ReminderMailer.reminder_email(@user, @task).deliver_later
       flash[:notice] = 'Task was successfully created.'
+      redirect_to tasks_url
     end
-    respond_with(@task)
   end
 
   def update
     authorize @task
     flash[:notice] = 'Task was successfully updated.' if @task.update(task_params)
-    respond_with(@task)
+    redirect_to tasks_url
   end
 
   def destroy

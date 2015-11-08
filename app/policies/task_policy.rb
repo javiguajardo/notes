@@ -13,10 +13,6 @@ class TaskPolicy < ApplicationPolicy
     user.admin? or user.visitor?
   end
 
-  def show?
-    user.admin? or user.visitor?
-  end
-
   def new?
     user.admin? or user.visitor?
   end
