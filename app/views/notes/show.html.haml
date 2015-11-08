@@ -1,17 +1,14 @@
 .page-header
-  - if policy(Note).index?
-    = link_to notes_path, class: 'btn btn-default' do
-      %span.glyphicon.glyphicon-list-alt
-      Back
-  - if policy(Note).edit?
-    = link_to edit_note_path(@note), class: 'btn btn-primary' do
-      %span.glyphicon.glyphicon-pencil
-      Edit
-  - if policy(Note).destroy?
-    = link_to note_path(@note), class: 'btn btn-danger', title: 'Delete Note',
+  = link_to notes_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_note_path(@note), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  = link_to note_path(@note), class: 'btn btn-danger', title: 'Delete Note',
               data: { confirm: "Are you sure you want to delete the note #{@note.title}?" }, method: :delete do
-      %span.glyphicon.glyphicon-remove
-      Delete
+    %span.glyphicon.glyphicon-remove
+    Delete
 
 .col-md-12
   .box

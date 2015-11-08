@@ -6,43 +6,38 @@ class CoursesController < ApplicationController
 
   def index
     @courses = policy_scope(Course).paginate(page: params[:page], per_page: 10).order('id DESC')
-    authorize @courses
   end
 
   def show
     add_breadcrumb "#{@course.name}", course_path
-    @tasks = policy_scope(Task).paginate(page: params[:page], per_page: 10).order('id DESC')
-    @notebooks = policy_scope(Notebook).paginate(page: params[:page], per_page: 10).order('id DESC')
-    authorize @course
+    @tasks = Task.where(id: Course.find(params[:id]).tasks).
+        paginate(page: params[:page], per_page: 10).order('id DESC')
+    @notebooks = Notebook.where(id: Course.find(params[:id]).notebooks).
+        paginate(page: params[:page], per_page: 10).order('id DESC')
   end
 
   def new
     add_breadcrumb 'New', new_course_path
     @course = Course.new
-    authorize @course
   end
 
   def edit
     add_breadcrumb 'Edit', edit_course_path
-    authorize @course
   end
 
   def create
     @course = Course.new(course_params)
     @course.set_course_user(current_user)
-    authorize @course
     flash[:notice] = 'Course was successfully created.' if @course.save
     respond_with(@course)
   end
 
   def update
-    authorize @course
     flash[:notice] = 'Course was successfully updated.' if @course.update(course_params)
     respond_with(@course)
   end
 
   def destroy
-    authorize @course
     if @course.destroy
       redirect_to courses_url, notice: 'Course was successfully destroyed.'
     else

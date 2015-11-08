@@ -1,8 +1,7 @@
 .page-header
-  - if policy(Notebook).new?
-    = link_to new_notebook_path, class: 'btn btn-primary' do
-      %span.glyphicon.glyphicon-plus
-      New Notebook
+  = link_to new_notebook_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Notebook
 
 .box
   .box-header.with-border
@@ -26,11 +25,11 @@
             %td
               .btn-group
                 .row
-                  = link_item '<i class="fa fa-search"></i>'.html_safe, notebook_path(notebook), class: 'btn btn-xs btn-success grow',
+                  = link_to '<i class="fa fa-search"></i>'.html_safe, notebook_path(notebook), class: 'btn btn-xs btn-success grow',
                               title: 'Show'
-                  = link_item '<i class="fa fa-edit"></i>'.html_safe, edit_notebook_path(notebook),
+                  = link_to '<i class="fa fa-edit"></i>'.html_safe, edit_notebook_path(notebook),
                               class: 'btn btn-xs btn-primary grow', title: 'Edit'
-                  = link_item '<i class="fa fa-trash grow"></i>'.html_safe, notebook_path(notebook),
+                  = link_to '<i class="fa fa-trash grow"></i>'.html_safe, notebook_path(notebook),
                                data: { confirm: "Are you sure you want to delete the notebook #{notebook.name}?" },
                                method: :delete, title: 'Delete Notebook', class: 'btn btn-xs btn-danger grow'
   .box-footer.clearfix

@@ -19,5 +19,13 @@
           = task.complete
         -unless task.course.blank?
           %p
-            %strong Complete:
+            %strong Course:
             = task.course.name
+      .modal-footer
+        = link_to edit_task_path(task), class: 'btn btn-primary' do
+          %span.glyphicon.glyphicon-pencil
+          Edit
+        = link_to task_path(task), class: 'btn btn-danger', title: 'Delete Task',
+                    data: { confirm: "Are you sure you want to delete the task #{task.name}?" }, method: :delete do
+          %span.glyphicon.glyphicon-remove
+          Delete

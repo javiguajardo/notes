@@ -8,28 +8,4 @@ class TaskPolicy < ApplicationPolicy
       end
     end
   end
-
-  def index?
-    user.admin? or user.visitor?
-  end
-
-  def new?
-    user.admin? or user.visitor?
-  end
-
-  def edit?
-    user.admin? or user.visitor?
-  end
-
-  def create?
-    user.admin? or user.visitor?
-  end
-
-  def update?
-    user.admin? or user.visitor?
-  end
-
-  def destroy?
-    user.admin? or user.visitor?
-  end
 end

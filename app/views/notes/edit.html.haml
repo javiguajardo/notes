@@ -1,11 +1,9 @@
 .page-header
-  - if policy(Note).index?
-    = link_to notes_path, class: 'btn btn-default' do
-      %span.glyphicon.glyphicon-list-alt
-      Back
-  - if policy(Note).show?
-    = link_to note_path(@note), class: 'btn btn-primary' do
-      %span.glyphicon.glyphicon-info-sign
-      Show
+  = link_to notes_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to note_path(@note), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-info-sign
+    Show
 
 = render 'form', note: @note

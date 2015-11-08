@@ -1,8 +1,7 @@
 .page-header
-  - if policy(Course).index?
-    = link_to courses_path, class: 'btn btn-default' do
-      %span.glyphicon.glyphicon-list-alt
-      Back
+  = link_to courses_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
 
   = render 'form', course: @course
 

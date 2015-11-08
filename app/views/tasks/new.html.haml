@@ -1,8 +1,7 @@
 .page-header
-  - if policy(Task).index?
-    = link_to tasks_path, class: 'btn btn-default' do
-      %span.glyphicon.glyphicon-list-alt
-      Back
+  = link_to tasks_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
 
 = render 'form', task: @task
 

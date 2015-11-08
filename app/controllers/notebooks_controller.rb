@@ -6,43 +6,36 @@ class NotebooksController < ApplicationController
 
   def index
     @notebooks = policy_scope(Notebook).paginate(page: params[:page], per_page: 10).order('id DESC')
-    authorize @notebooks
   end
 
   def show
     add_breadcrumb "#{@notebook.name}", notebook_path
     @notes = Note.where(id: Notebook.find(params[:id]).notes).
         paginate(page: params[:page], per_page: 10).order('id DESC')
-    authorize @notebook
   end
 
   def new
     add_breadcrumb 'New', new_notebook_path
     @notebook = Notebook.new
-    authorize @notebook
   end
 
   def edit
-    authorize @notebook
     add_breadcrumb 'Edit', edit_notebook_path
   end
 
   def create
     @notebook = Notebook.new(notebook_params)
-    authorize @notebook
     @notebook.set_notebook_user(current_user)
     flash[:notice] = 'Notebook was successfully created.' if @notebook.save
     respond_with(@notebook)
   end
 
   def update
-    authorize @notebook
     flash[:notice] = 'Notebook was successfully updated.' if @notebook.update(notebook_params)
     respond_with(@notebook)
   end
 
   def destroy
-    authorize @notebook
     if @notebook.destroy
       redirect_to notebooks_url, notice: 'Notebook was successfully destroyed.'
     else

@@ -1,7 +1,6 @@
 .page-header
-  - if policy(Note).index?
-    = link_to notes_path, class: 'btn btn-default' do
-      %span.glyphicon.glyphicon-list-alt
-      Back
+  = link_to notes_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
 
 = render 'form', note: @note

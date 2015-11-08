@@ -6,25 +6,21 @@ class TasksController < ApplicationController
 
   def index
     @tasks = policy_scope(Task).paginate(page: params[:page], per_page: 10).order('id DESC')
-    authorize @tasks
   end
 
   def new
     add_breadcrumb 'New', new_task_path
     @task = Task.new
-    authorize @task
   end
 
   def edit
     add_breadcrumb 'Edit', edit_task_path
-    authorize @task
   end
 
   def create
     @user = current_user
     @task = Task.new(task_params)
     @task.set_task_user(current_user)
-    authorize @task
     if @task.save
       ReminderMailer.reminder_email(@user, @task).deliver_later
       flash[:notice] = 'Task was successfully created.'
@@ -33,13 +29,11 @@ class TasksController < ApplicationController
   end
 
   def update
-    authorize @task
     flash[:notice] = 'Task was successfully updated.' if @task.update(task_params)
     redirect_to tasks_url
   end
 
   def destroy
-    authorize @task
     redirect_to tasks_url, notice: 'Task was successfully destroyed.' if @task.destroy
   end
 
