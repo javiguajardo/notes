@@ -25,6 +25,8 @@ class Task < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
 
+  has_many :notes
+
   delegate :username, to: :user, prefix: true
 
   def set_task_user(user)
