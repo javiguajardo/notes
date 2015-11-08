@@ -22,7 +22,7 @@
         - @notes.each do |note|
           %tr.gradeX
             %td= note.title
-            %td= note.content
+            %td= simple_format(note.content)
             %td= note.notebook_name
             - if current_user.admin?
               %td= note.user_username

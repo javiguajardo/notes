@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151107162257) do
+ActiveRecord::Schema.define(version: 20151108211621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,9 +76,11 @@ ActiveRecord::Schema.define(version: 20151107162257) do
     t.datetime "updated_at",  null: false
     t.integer  "notebook_id"
     t.integer  "user_id"
+    t.integer  "task_id"
   end
 
   add_index "notes", ["notebook_id"], name: "index_notes_on_notebook_id", using: :btree
+  add_index "notes", ["task_id"], name: "index_notes_on_task_id", using: :btree
   add_index "notes", ["user_id"], name: "index_notes_on_user_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
@@ -133,6 +135,7 @@ ActiveRecord::Schema.define(version: 20151107162257) do
   add_foreign_key "notebooks", "courses"
   add_foreign_key "notebooks", "users"
   add_foreign_key "notes", "notebooks"
+  add_foreign_key "notes", "tasks"
   add_foreign_key "notes", "users"
   add_foreign_key "tasks", "courses"
   add_foreign_key "tasks", "users"

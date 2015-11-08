@@ -11,6 +11,12 @@
         .col-sm-9
           = f.collection_select(:notebook_id, policy_scope(Notebook.all), :id, :name, {prompt: 'Select notebook'},
                               {class: 'form-control'})
+      .form-group
+        %label{class: 'col-sm-3 control-label', for: 'note_task'}
+          Task
+        .col-sm-9
+          = f.collection_select(:task_id, policy_scope(Task.all), :id, :name, {prompt: 'Select task'},
+                              {class: 'form-control'})
       = f.text_field :title
       = f.text_area :content, class: 'wysihtml5'
       = f.submit class: 'btn btn-primary'

@@ -9,6 +9,7 @@
 #  updated_at  :datetime         not null
 #  notebook_id :integer
 #  user_id     :integer
+#  task_id     :integer
 #
 
 class Note < ActiveRecord::Base
@@ -19,9 +20,11 @@ class Note < ActiveRecord::Base
 
   belongs_to :notebook
   belongs_to :user
+  belongs_to :task
 
   delegate :name, to: :notebook, prefix: true
   delegate :username, to: :user, prefix: true
+  delegate :name, to: :task, prefix: true
 
   def set_note_user(user)
     self.user_id = user.id

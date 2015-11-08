@@ -15,8 +15,6 @@ $(document).ready(function () {
         },
         events: '/tasks.json',
         eventRender: function(event, element) {
-            var taskId = element.data("task-id");
-            console.log(taskId);
             element.attr("data-toggle", "modal");
             element.attr("data-target", "#"+event.title);
         },
