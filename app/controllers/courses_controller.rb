@@ -41,7 +41,7 @@ class CoursesController < ApplicationController
     if @course.destroy
       redirect_to courses_url, notice: 'Course was successfully destroyed.'
     else
-      redirect_to :back, alert: "The course #{@course.name} has tasks."
+      redirect_to :back, alert: "The course #{@course.name} has tasks or notebooks."
     end
   end
 
