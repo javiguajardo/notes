@@ -90,7 +90,7 @@ Rails.application.configure do
       domain: 'heroku.com',
       authentication: :plain,
       enable_starttls_auto: true,
-      user_name: ENV['SENDGRID_USERNAME'],
-      password: ENV['SENDGRID_PASSWORD']
+      user_name: 'app43091930@heroku.com',
+      password: 'qf3n5u7d2489'
   }
 end
