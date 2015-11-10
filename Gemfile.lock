@@ -474,7 +474,6 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   launchy
-  mail
   meta-tags
   modernizr-rails
   momentjs-rails
