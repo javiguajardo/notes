@@ -25,7 +25,7 @@ class Task < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
 
-  has_many :notes
+  has_many :notes, dependent: :nullify
 
   delegate :username, to: :user, prefix: true
 
