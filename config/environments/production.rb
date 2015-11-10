@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # Devise default url options.
-  config.action_mailer.default_url_options = { host: 'uninotas-uach.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'www.example.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
