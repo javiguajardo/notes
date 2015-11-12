@@ -79,6 +79,7 @@ Rails.application.configure do
 
   # Devise default url options.
   config.action_mailer.default_url_options = { host: 'uninotas-uach.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'cms.uach.mx' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false
