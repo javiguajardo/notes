@@ -25,6 +25,8 @@ class TasksController < ApplicationController
       ReminderMailer.reminder_email(@user, @task).deliver_later
       flash[:notice] = 'Task was successfully created.'
       redirect_to tasks_url
+    else
+      render 'tasks/new'
     end
   end
 
