@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :roles
   resources :notebooks
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'users/registrations' }
   get 'home/index'
 
   resources :notes

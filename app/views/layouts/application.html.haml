@@ -4,6 +4,8 @@
 
   %body{class: user_signed_in? ? 'hold-transition skin-blue sidebar-mini' : 'hold-transition register-page'}
     .wrapper
+      - unless user_signed_in?
+        = render 'flashes'
       - if user_signed_in?
         = render 'header'
         = render 'side_menu'

@@ -8,6 +8,8 @@
       Sign in
     = form_for resource, as: resource_name, url: session_path(resource_name), layout: :horizontal do |f|
       .has-feedback
+        = devise_error_messages!
+      .has-feedback
         = f.email_field :email, autofocus: true
         %span.glyphicon.glyphicon-envelope.form-control-feedback
       .has-feedback
