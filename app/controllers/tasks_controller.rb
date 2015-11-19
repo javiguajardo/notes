@@ -50,7 +50,7 @@ class TasksController < ApplicationController
   end
 
   def own_course
-    unless current_user == @task.user
+    unless current_user == @task.user || current_user.role.key = 'admin'
       redirect_to tasks_url, alert: 'You cannot perform an action on this task.'
     end
   end

@@ -48,7 +48,7 @@ class NotesController < ApplicationController
   end
 
   def own_note
-    unless current_user == @note.user
+    unless current_user == @note.user || current_user.role.key = 'admin'
       redirect_to notes_url, alert: 'You cannot perform an action on this note.'
     end
   end

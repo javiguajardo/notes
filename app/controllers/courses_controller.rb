@@ -56,7 +56,7 @@ class CoursesController < ApplicationController
   end
 
   def own_course
-    unless current_user == @course.user
+    unless current_user == @course.user || current_user.role.key = 'admin'
       redirect_to courses_url, alert: 'You cannot perform an action on this course.'
     end
   end

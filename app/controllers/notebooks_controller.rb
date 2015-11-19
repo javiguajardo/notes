@@ -54,7 +54,7 @@ class NotebooksController < ApplicationController
   end
 
   def own_notebook
-    unless current_user == @notebook.user
+    unless current_user == @notebook.user || current_user.role.key = 'admin'
       redirect_to notebooks_url, alert: 'You cannot perform an action on this notebook.'
     end
   end
