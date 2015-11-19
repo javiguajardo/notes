@@ -1,0 +1,11 @@
+.page-header
+.box
+  .box-header
+    %h3.box-title Edit Password
+  .box-body.pad
+    = form_for user, url: {action: 'update_password'}, layout: :horizontal do |f|
+      = f.text_field :username
+      = f.password_field :current_password, autocomplete: 'off'
+      = f.password_field :password, autocomplete: 'off'
+      = f.password_field :password_confirmation
+      = f.submit class: 'btn btn-primary'
