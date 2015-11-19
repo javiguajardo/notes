@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :own_course, only: [:show, :edit, :update, :destroy]
   add_breadcrumb 'Tasks', :tasks_path
 
   respond_to :html, :json, :js
@@ -46,5 +47,11 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:name, :deadline_date, :complete, :user_id, :course_id, :description)
+  end
+
+  def own_course
+    unless current_user == @task.user
+      redirect_to tasks_url, alert: 'You cannot perform an action on this task.'
+    end
   end
 end

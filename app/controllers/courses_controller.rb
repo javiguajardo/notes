@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :own_course, only: [:show, :edit, :update, :destroy]
   add_breadcrumb 'Courses', :courses_path
 
   respond_to :html, :json, :js
@@ -52,6 +53,12 @@ class CoursesController < ApplicationController
 
   def course_params
     params.require(:course).permit(:name, :user_id)
+  end
+
+  def own_course
+    unless current_user == @course.user
+      redirect_to courses_url, alert: 'You cannot perform an action on this course.'
+    end
   end
 end
 

@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_note, only: [:show, :edit, :update, :destroy]
+  before_action :own_note, only: [:show, :edit, :update, :destroy]
   add_breadcrumb 'Notes', :notes_path
 
   respond_to :html, :json, :js
@@ -44,5 +45,11 @@ class NotesController < ApplicationController
 
   def note_params
     params.require(:note).permit(:title, :content, :notebook_id, :user_id, :task_id)
+  end
+
+  def own_note
+    unless current_user == @note.user
+      redirect_to notes_url, alert: 'You cannot perform an action on this note.'
+    end
   end
 end

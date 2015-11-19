@@ -1,5 +1,6 @@
 class NotebooksController < ApplicationController
   before_action :set_notebook, only: [:show, :edit, :update, :destroy]
+  before_action :own_notebook, only: [:show, :edit, :update, :destroy]
   add_breadcrumb 'Notebooks', :notebooks_path
 
   respond_to :html, :json, :js
@@ -50,5 +51,11 @@ class NotebooksController < ApplicationController
 
   def notebook_params
     params.require(:notebook).permit(:name, :user_id, :course_id)
+  end
+
+  def own_notebook
+    unless current_user == @notebook.user
+      redirect_to notebooks_url, alert: 'You cannot perform an action on this notebook.'
+    end
   end
 end
